@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.SqlServer.Server;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -21,7 +22,7 @@ namespace insertarNeysser
             conexion.Open();
             try
             {
-                limpiarTabla(conexion);
+                // limpiarTabla(conexion);
                 Random random = new Random();
                 int i = 1,
                 cantidadRegistros = Convert.ToInt32(Console.ReadLine());
@@ -34,13 +35,9 @@ namespace insertarNeysser
                     int comercio = i;
                     string numeroTarjeta = string.Join("", Enumerable.Range(0, 16).Select(_ => random.Next(0, 10)));
                     double valor = 0.0 + i;
-                    //string valorTipo = obtenerTipo(conexion);
-                    //string valorRazon = obtenerRazon(conexion);
-                    string valorTipo = obtenerValorTipo_Razon(conexion, "tipoTrx");
-                    string valorRazon = obtenerValorTipo_Razon(conexion, "razonTrx");
-                    string autoriza = "1";
-
-                    string query = "insert into pr_transacciones values (@pr_id, @pr_fecha, @pr_comercio, @pr_tarjeta, @pr_valor, @pr_tipoTrx, @pr_razon, @pr_autoriza)";
+                    string valorTipo = obtenerRazonTipo(conexion);
+                    string valorRazon = obtenerRazonTipo(conexion, valorTipo);
+                    string autoriza = "ney"; string query = "insert into pr_transacciones values (@pr_id, @pr_fecha, @pr_comercio, @pr_tarjeta, @pr_valor, @pr_tipoTrx, @pr_razon, @pr_autoriza)";
                     SqlCommand comando = new SqlCommand(query, conexion);
                     comando.Parameters.AddWithValue("@pr_id", i);
                     comando.Parameters.AddWithValue("@pr_fecha", date);
@@ -51,8 +48,8 @@ namespace insertarNeysser
                     comando.Parameters.AddWithValue("@pr_razon", valorRazon);
                     comando.Parameters.AddWithValue("@pr_autoriza", autoriza);
                     comando.ExecuteNonQuery();
-                    Console.WriteLine(i);
                     i += 1;
+                    Console.WriteLine(i);
                 }
 
             }
@@ -86,6 +83,67 @@ namespace insertarNeysser
 
         }
 
+
+        public string obtenerRazonTipo(SqlConnection conexion)
+        {
+
+            string query = "SELECT TOP 1 id FROM tipoTrx ORDER BY NEWID();", resultado = "";
+            try
+            {
+
+                SqlCommand comando = new SqlCommand(query, conexion);
+                SqlDataReader registro = comando.ExecuteReader();
+                if (registro.HasRows)
+                {
+                    while (registro.Read())
+                    {
+                        resultado = registro["id"].ToString();
+                    }
+                }
+                registro.Close();
+                return resultado;
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"Error de conexion\nMensaje: {ex.Message}");
+                return resultado;
+            }
+        }
+
+        public string obtenerRazonTipo(SqlConnection conexion, string valorTipo)
+        {
+            string query = String.Format("SELECT TOP 1 ISNULL(id_razon, '0') FROM TRtrx WHERE id_tipo = {0} ORDER BY NEWID();", valorTipo),
+                 resultado = "";
+            List<string> lista = new List<string>();
+            try
+            {
+
+                SqlCommand comando = new SqlCommand(query, conexion);
+                SqlDataReader registro = comando.ExecuteReader();
+                if (registro.HasRows)
+
+                {
+                    while (registro.Read())
+                    {
+                        // lista.Add(registro[0].ToString());
+                        resultado = registro[0].ToString();
+                    }
+                }
+                else
+                {
+                    resultado = "0";
+
+                }
+
+                registro.Close();
+                return resultado;
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"Error de conexion\nMensaje: {ex.Message}");
+                return resultado;
+            }
+        }
 
         public string obtenerValorTipo_Razon(SqlConnection conexion, string tabla)
         {

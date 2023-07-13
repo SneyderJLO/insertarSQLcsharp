@@ -18,8 +18,8 @@ namespace insertarNeysser
             SqlConnection conexion = new SqlConnection();
             try
             {
-                
-                string ruta = "Data Source =localhost; Initial Catalog = DB_PRACTICAS; User=sa; Password=123*abc*456";
+                //string ruta = "Data Source =localhost; Initial Catalog = DB_PRACTICAS; User=sa; Password=123*abc*456";
+                string ruta = "Data Source =192.168.1.55; Initial Catalog = DB_PRACTICAS; User=sa; Password=123*abc*456";
                 conexion.ConnectionString = ruta;
 
             }
@@ -31,7 +31,7 @@ namespace insertarNeysser
             {
                 Console.WriteLine($"Error\nMensaje: {ex.Message}");
             }
-           
+
             return conexion;
 
         }
