@@ -1,0 +1,16 @@
+C:\Users\usrTechsoft\source\repos\insertarNeysser\insertarNeysser\bin\Debug\insertarNeysser.exe.config
+C:\Users\usrTechsoft\source\repos\insertarNeysser\insertarNeysser\bin\Debug\insertarNeysser.exe
+C:\Users\usrTechsoft\source\repos\insertarNeysser\insertarNeysser\bin\Debug\insertarNeysser.pdb
+C:\Users\usrTechsoft\source\repos\insertarNeysser\insertarNeysser\obj\Debug\insertarNeysser.csproj.AssemblyReference.cache
+C:\Users\usrTechsoft\source\repos\insertarNeysser\insertarNeysser\obj\Debug\insertarNeysser.csproj.SuggestedBindingRedirects.cache
+C:\Users\usrTechsoft\source\repos\insertarNeysser\insertarNeysser\obj\Debug\insertarNeysser.csproj.CoreCompileInputs.cache
+C:\Users\usrTechsoft\source\repos\insertarNeysser\insertarNeysser\obj\Debug\insertarNeysser.exe
+C:\Users\usrTechsoft\source\repos\insertarNeysser\insertarNeysser\obj\Debug\insertarNeysser.pdb
+C:\Users\usrTechsoft\Downloads\insertarNeysser\insertarNeysser\obj\Debug\insertarNeysser.csproj.AssemblyReference.cache
+C:\Users\usrTechsoft\Downloads\insertarNeysser\insertarNeysser\obj\Debug\insertarNeysser.csproj.SuggestedBindingRedirects.cache
+C:\Users\usrTechsoft\Downloads\insertarNeysser\insertarNeysser\obj\Debug\insertarNeysser.csproj.CoreCompileInputs.cache
+C:\Users\usrTechsoft\Downloads\insertarNeysser\insertarNeysser\obj\Debug\insertarNeysser.exe
+C:\Users\usrTechsoft\Downloads\insertarNeysser\insertarNeysser\obj\Debug\insertarNeysser.pdb
+C:\Users\usrTechsoft\Downloads\insertarNeysser\insertarNeysser\bin\Debug\insertarNeysser.exe.config
+C:\Users\usrTechsoft\Downloads\insertarNeysser\insertarNeysser\bin\Debug\insertarNeysser.exe
+C:\Users\usrTechsoft\Downloads\insertarNeysser\insertarNeysser\bin\Debug\insertarNeysser.pdb
